@@ -1,0 +1,436 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		540C864314395BA00088C7B2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 540C864214395BA00088C7B2 /* MapKit.framework */; };
+		541ADEB0143C0DE8001627E3 /* LOTTabBarBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 541ADEAF143C0DE8001627E3 /* LOTTabBarBackground.png */; };
+		541D155B143C34FC006DCFE3 /* LOTChapter02_Tree.png in Resources */ = {isa = PBXBuildFile; fileRef = 541D155A143C34FC006DCFE3 /* LOTChapter02_Tree.png */; };
+		541D1561143C3F83006DCFE3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 541D155F143C3F83006DCFE3 /* Default.png */; };
+		541D1562143C3F83006DCFE3 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 541D1560143C3F83006DCFE3 /* Default@2x.png */; };
+		5430EE4E14394A1800D497D2 /* LOTChapter01ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5430EE4C14394A1800D497D2 /* LOTChapter01ViewController.m */; };
+		5430EE4F14394A1800D497D2 /* LOTChapter01ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5430EE4D14394A1800D497D2 /* LOTChapter01ViewController.xib */; };
+		5430EE5414394A2F00D497D2 /* LOTChapter02ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5430EE5214394A2F00D497D2 /* LOTChapter02ViewController.m */; };
+		5430EE5514394A2F00D497D2 /* LOTChapter02ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5430EE5314394A2F00D497D2 /* LOTChapter02ViewController.xib */; };
+		5430EE5914394A4D00D497D2 /* LOTChapter03ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5430EE5714394A4D00D497D2 /* LOTChapter03ViewController.m */; };
+		5430EE5A14394A4D00D497D2 /* LOTChapter03ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5430EE5814394A4D00D497D2 /* LOTChapter03ViewController.xib */; };
+		5430EE5E14394ECC00D497D2 /* LOTTabBarChapter01.png in Resources */ = {isa = PBXBuildFile; fileRef = 5430EE5B14394ECC00D497D2 /* LOTTabBarChapter01.png */; };
+		5430EE6014394ECC00D497D2 /* LOTTabBarChapter02.png in Resources */ = {isa = PBXBuildFile; fileRef = 5430EE5D14394ECC00D497D2 /* LOTTabBarChapter02.png */; };
+		5430EE65143950E300D497D2 /* LOTTabBarChapter03.png in Resources */ = {isa = PBXBuildFile; fileRef = 5430EE64143950E300D497D2 /* LOTTabBarChapter03.png */; };
+		54694B13143D3DD900BBD636 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54694B12143D3DD900BBD636 /* Icon@2x.png */; };
+		54694B15143D3DDB00BBD636 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 54694B14143D3DDB00BBD636 /* Icon.png */; };
+		546EDF051438C74B00E54C07 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 546EDF041438C74B00E54C07 /* UIKit.framework */; };
+		546EDF071438C74B00E54C07 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 546EDF061438C74B00E54C07 /* Foundation.framework */; };
+		546EDF091438C74B00E54C07 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 546EDF081438C74B00E54C07 /* CoreGraphics.framework */; };
+		546EDF0F1438C74B00E54C07 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 546EDF0D1438C74B00E54C07 /* InfoPlist.strings */; };
+		546EDF111438C74B00E54C07 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 546EDF101438C74B00E54C07 /* main.m */; };
+		546EDF151438C74B00E54C07 /* loveOldTreeAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 546EDF141438C74B00E54C07 /* loveOldTreeAppDelegate.m */; };
+		546EDF181438C74B00E54C07 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 546EDF161438C74B00E54C07 /* MainWindow.xib */; };
+		CE8DE700143F50B00006AB1B /* LOTChapter02TreeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8DE6FE143F50B00006AB1B /* LOTChapter02TreeDetailViewController.m */; };
+		CE8DE701143F50B00006AB1B /* LOTChapter02TreeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE8DE6FF143F50B00006AB1B /* LOTChapter02TreeDetailViewController.xib */; };
+		CED68DA5143F1FD5006B06AD /* OldTree.png in Resources */ = {isa = PBXBuildFile; fileRef = CED68DA4143F1FD5006B06AD /* OldTree.png */; };
+		DD73B0C3143EAD2800EB1E53 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD73B0C2143EAD2800EB1E53 /* CoreLocation.framework */; };
+		DD73B0D0143EB1F100EB1E53 /* LOTAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = DD73B0CF143EB1F100EB1E53 /* LOTAnnotation.m */; };
+		DD73B0D8143EDC5E00EB1E53 /* UIImage+LOTAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DD73B0D7143EDC5E00EB1E53 /* UIImage+LOTAdditions.m */; };
+		DD73B0DE143EDCFF00EB1E53 /* LOTPin.png in Resources */ = {isa = PBXBuildFile; fileRef = DD73B0DD143EDCFF00EB1E53 /* LOTPin.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		540C864214395BA00088C7B2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		541ADEAF143C0DE8001627E3 /* LOTTabBarBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LOTTabBarBackground.png; path = Resources/LOTTabBarBackground.png; sourceTree = "<group>"; };
+		541D155A143C34FC006DCFE3 /* LOTChapter02_Tree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LOTChapter02_Tree.png; path = Resources/LOTChapter02_Tree.png; sourceTree = "<group>"; };
+		541D155F143C3F83006DCFE3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
+		541D1560143C3F83006DCFE3 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/Default@2x.png"; sourceTree = "<group>"; };
+		5430EE4B14394A1800D497D2 /* LOTChapter01ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTChapter01ViewController.h; sourceTree = "<group>"; };
+		5430EE4C14394A1800D497D2 /* LOTChapter01ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTChapter01ViewController.m; sourceTree = "<group>"; };
+		5430EE4D14394A1800D497D2 /* LOTChapter01ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LOTChapter01ViewController.xib; sourceTree = "<group>"; };
+		5430EE5114394A2F00D497D2 /* LOTChapter02ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTChapter02ViewController.h; sourceTree = "<group>"; };
+		5430EE5214394A2F00D497D2 /* LOTChapter02ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTChapter02ViewController.m; sourceTree = "<group>"; };
+		5430EE5314394A2F00D497D2 /* LOTChapter02ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LOTChapter02ViewController.xib; sourceTree = "<group>"; };
+		5430EE5614394A4D00D497D2 /* LOTChapter03ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTChapter03ViewController.h; sourceTree = "<group>"; };
+		5430EE5714394A4D00D497D2 /* LOTChapter03ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTChapter03ViewController.m; sourceTree = "<group>"; };
+		5430EE5814394A4D00D497D2 /* LOTChapter03ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LOTChapter03ViewController.xib; sourceTree = "<group>"; };
+		5430EE5B14394ECC00D497D2 /* LOTTabBarChapter01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LOTTabBarChapter01.png; sourceTree = "<group>"; };
+		5430EE5D14394ECC00D497D2 /* LOTTabBarChapter02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LOTTabBarChapter02.png; sourceTree = "<group>"; };
+		5430EE64143950E300D497D2 /* LOTTabBarChapter03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LOTTabBarChapter03.png; sourceTree = "<group>"; };
+		54694B12143D3DD900BBD636 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "Resources/Icon@2x.png"; sourceTree = "<group>"; };
+		54694B14143D3DDB00BBD636 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/Icon.png; sourceTree = "<group>"; };
+		546EDF001438C74B00E54C07 /* loveOldTree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = loveOldTree.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		546EDF041438C74B00E54C07 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		546EDF061438C74B00E54C07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		546EDF081438C74B00E54C07 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		546EDF0C1438C74B00E54C07 /* loveOldTree-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "loveOldTree-Info.plist"; sourceTree = "<group>"; };
+		546EDF0E1438C74B00E54C07 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		546EDF101438C74B00E54C07 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		546EDF121438C74B00E54C07 /* loveOldTree-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "loveOldTree-Prefix.pch"; sourceTree = "<group>"; };
+		546EDF131438C74B00E54C07 /* loveOldTreeAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = loveOldTreeAppDelegate.h; path = loveOldTree/loveOldTreeAppDelegate.h; sourceTree = "<group>"; };
+		546EDF141438C74B00E54C07 /* loveOldTreeAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = loveOldTreeAppDelegate.m; path = loveOldTree/loveOldTreeAppDelegate.m; sourceTree = "<group>"; };
+		546EDF171438C74B00E54C07 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		CE8DE6FD143F50B00006AB1B /* LOTChapter02TreeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTChapter02TreeDetailViewController.h; sourceTree = "<group>"; };
+		CE8DE6FE143F50B00006AB1B /* LOTChapter02TreeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTChapter02TreeDetailViewController.m; sourceTree = "<group>"; };
+		CE8DE6FF143F50B00006AB1B /* LOTChapter02TreeDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LOTChapter02TreeDetailViewController.xib; sourceTree = "<group>"; };
+		CED68DA4143F1FD5006B06AD /* OldTree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OldTree.png; sourceTree = "<group>"; };
+		DD73B0C2143EAD2800EB1E53 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		DD73B0CE143EB1F100EB1E53 /* LOTAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LOTAnnotation.h; path = loveOldTree/LOTAnnotation.h; sourceTree = "<group>"; };
+		DD73B0CF143EB1F100EB1E53 /* LOTAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LOTAnnotation.m; path = loveOldTree/LOTAnnotation.m; sourceTree = "<group>"; };
+		DD73B0D6143EDC5E00EB1E53 /* UIImage+LOTAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+LOTAdditions.h"; path = "loveOldTree/UIImage+LOTAdditions.h"; sourceTree = "<group>"; };
+		DD73B0D7143EDC5E00EB1E53 /* UIImage+LOTAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+LOTAdditions.m"; path = "loveOldTree/UIImage+LOTAdditions.m"; sourceTree = "<group>"; };
+		DD73B0DD143EDCFF00EB1E53 /* LOTPin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LOTPin.png; path = Resources/LOTPin.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		546EDEFD1438C74B00E54C07 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD73B0C3143EAD2800EB1E53 /* CoreLocation.framework in Frameworks */,
+				546EDF091438C74B00E54C07 /* CoreGraphics.framework in Frameworks */,
+				540C864314395BA00088C7B2 /* MapKit.framework in Frameworks */,
+				546EDF051438C74B00E54C07 /* UIKit.framework in Frameworks */,
+				546EDF071438C74B00E54C07 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5430EE611439502600D497D2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CED68DA4143F1FD5006B06AD /* OldTree.png */,
+				54694B14143D3DDB00BBD636 /* Icon.png */,
+				54694B12143D3DD900BBD636 /* Icon@2x.png */,
+				541D155F143C3F83006DCFE3 /* Default.png */,
+				541D1560143C3F83006DCFE3 /* Default@2x.png */,
+				DD73B0DD143EDCFF00EB1E53 /* LOTPin.png */,
+				541ADEAF143C0DE8001627E3 /* LOTTabBarBackground.png */,
+				5430EE5B14394ECC00D497D2 /* LOTTabBarChapter01.png */,
+				5430EE5D14394ECC00D497D2 /* LOTTabBarChapter02.png */,
+				541D155A143C34FC006DCFE3 /* LOTChapter02_Tree.png */,
+				5430EE64143950E300D497D2 /* LOTTabBarChapter03.png */,
+			);
+			name = Resources;
+			path = loveOldTree;
+			sourceTree = "<group>";
+		};
+		546EDEF51438C74B00E54C07 = {
+			isa = PBXGroup;
+			children = (
+				DD73B0D2143ED6D800EB1E53 /* Main */,
+				DD73B0D4143ED71C00EB1E53 /* Chapters */,
+				DD73B0D5143ED75A00EB1E53 /* Generic */,
+				5430EE611439502600D497D2 /* Resources */,
+				546EDF0B1438C74B00E54C07 /* Supporting Files */,
+				546EDF031438C74B00E54C07 /* Frameworks */,
+				546EDF011438C74B00E54C07 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		546EDF011438C74B00E54C07 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				546EDF001438C74B00E54C07 /* loveOldTree.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		546EDF031438C74B00E54C07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DD73B0C2143EAD2800EB1E53 /* CoreLocation.framework */,
+				540C864214395BA00088C7B2 /* MapKit.framework */,
+				546EDF041438C74B00E54C07 /* UIKit.framework */,
+				546EDF061438C74B00E54C07 /* Foundation.framework */,
+				546EDF081438C74B00E54C07 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		546EDF0A1438C74B00E54C07 /* Chapter 03 */ = {
+			isa = PBXGroup;
+			children = (
+				5430EE5614394A4D00D497D2 /* LOTChapter03ViewController.h */,
+				5430EE5714394A4D00D497D2 /* LOTChapter03ViewController.m */,
+				5430EE5814394A4D00D497D2 /* LOTChapter03ViewController.xib */,
+			);
+			name = "Chapter 03";
+			sourceTree = "<group>";
+		};
+		546EDF0B1438C74B00E54C07 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				546EDF0C1438C74B00E54C07 /* loveOldTree-Info.plist */,
+				546EDF0D1438C74B00E54C07 /* InfoPlist.strings */,
+				546EDF101438C74B00E54C07 /* main.m */,
+				546EDF121438C74B00E54C07 /* loveOldTree-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			path = loveOldTree;
+			sourceTree = "<group>";
+		};
+		DD73B0D1143ED69300EB1E53 /* Chapter 01 */ = {
+			isa = PBXGroup;
+			children = (
+				5430EE4B14394A1800D497D2 /* LOTChapter01ViewController.h */,
+				5430EE4C14394A1800D497D2 /* LOTChapter01ViewController.m */,
+				5430EE4D14394A1800D497D2 /* LOTChapter01ViewController.xib */,
+			);
+			name = "Chapter 01";
+			sourceTree = "<group>";
+		};
+		DD73B0D2143ED6D800EB1E53 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				546EDF131438C74B00E54C07 /* loveOldTreeAppDelegate.h */,
+				546EDF141438C74B00E54C07 /* loveOldTreeAppDelegate.m */,
+				546EDF161438C74B00E54C07 /* MainWindow.xib */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		DD73B0D3143ED70B00EB1E53 /* Chapter 02 */ = {
+			isa = PBXGroup;
+			children = (
+				5430EE5114394A2F00D497D2 /* LOTChapter02ViewController.h */,
+				5430EE5214394A2F00D497D2 /* LOTChapter02ViewController.m */,
+				5430EE5314394A2F00D497D2 /* LOTChapter02ViewController.xib */,
+				CE8DE6FD143F50B00006AB1B /* LOTChapter02TreeDetailViewController.h */,
+				CE8DE6FE143F50B00006AB1B /* LOTChapter02TreeDetailViewController.m */,
+				CE8DE6FF143F50B00006AB1B /* LOTChapter02TreeDetailViewController.xib */,
+			);
+			name = "Chapter 02";
+			sourceTree = "<group>";
+		};
+		DD73B0D4143ED71C00EB1E53 /* Chapters */ = {
+			isa = PBXGroup;
+			children = (
+				DD73B0D1143ED69300EB1E53 /* Chapter 01 */,
+				DD73B0D3143ED70B00EB1E53 /* Chapter 02 */,
+				546EDF0A1438C74B00E54C07 /* Chapter 03 */,
+			);
+			name = Chapters;
+			path = loveOldTree;
+			sourceTree = "<group>";
+		};
+		DD73B0D5143ED75A00EB1E53 /* Generic */ = {
+			isa = PBXGroup;
+			children = (
+				DD73B0D6143EDC5E00EB1E53 /* UIImage+LOTAdditions.h */,
+				DD73B0D7143EDC5E00EB1E53 /* UIImage+LOTAdditions.m */,
+				DD73B0CE143EB1F100EB1E53 /* LOTAnnotation.h */,
+				DD73B0CF143EB1F100EB1E53 /* LOTAnnotation.m */,
+			);
+			name = Generic;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		546EDEFF1438C74B00E54C07 /* loveOldTree */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 546EDF1B1438C74B00E54C07 /* Build configuration list for PBXNativeTarget "loveOldTree" */;
+			buildPhases = (
+				546EDEFC1438C74B00E54C07 /* Sources */,
+				546EDEFD1438C74B00E54C07 /* Frameworks */,
+				546EDEFE1438C74B00E54C07 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = loveOldTree;
+			productName = loveOldTree;
+			productReference = 546EDF001438C74B00E54C07 /* loveOldTree.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		546EDEF71438C74B00E54C07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 546EDEFA1438C74B00E54C07 /* Build configuration list for PBXProject "loveOldTree" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 546EDEF51438C74B00E54C07;
+			productRefGroup = 546EDF011438C74B00E54C07 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				546EDEFF1438C74B00E54C07 /* loveOldTree */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		546EDEFE1438C74B00E54C07 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				546EDF0F1438C74B00E54C07 /* InfoPlist.strings in Resources */,
+				546EDF181438C74B00E54C07 /* MainWindow.xib in Resources */,
+				5430EE4F14394A1800D497D2 /* LOTChapter01ViewController.xib in Resources */,
+				5430EE5514394A2F00D497D2 /* LOTChapter02ViewController.xib in Resources */,
+				5430EE5A14394A4D00D497D2 /* LOTChapter03ViewController.xib in Resources */,
+				5430EE5E14394ECC00D497D2 /* LOTTabBarChapter01.png in Resources */,
+				5430EE6014394ECC00D497D2 /* LOTTabBarChapter02.png in Resources */,
+				5430EE65143950E300D497D2 /* LOTTabBarChapter03.png in Resources */,
+				541ADEB0143C0DE8001627E3 /* LOTTabBarBackground.png in Resources */,
+				541D155B143C34FC006DCFE3 /* LOTChapter02_Tree.png in Resources */,
+				541D1561143C3F83006DCFE3 /* Default.png in Resources */,
+				541D1562143C3F83006DCFE3 /* Default@2x.png in Resources */,
+				54694B13143D3DD900BBD636 /* Icon@2x.png in Resources */,
+				54694B15143D3DDB00BBD636 /* Icon.png in Resources */,
+				DD73B0DE143EDCFF00EB1E53 /* LOTPin.png in Resources */,
+				CED68DA5143F1FD5006B06AD /* OldTree.png in Resources */,
+				CE8DE701143F50B00006AB1B /* LOTChapter02TreeDetailViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		546EDEFC1438C74B00E54C07 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				546EDF111438C74B00E54C07 /* main.m in Sources */,
+				546EDF151438C74B00E54C07 /* loveOldTreeAppDelegate.m in Sources */,
+				5430EE4E14394A1800D497D2 /* LOTChapter01ViewController.m in Sources */,
+				5430EE5414394A2F00D497D2 /* LOTChapter02ViewController.m in Sources */,
+				5430EE5914394A4D00D497D2 /* LOTChapter03ViewController.m in Sources */,
+				DD73B0D0143EB1F100EB1E53 /* LOTAnnotation.m in Sources */,
+				DD73B0D8143EDC5E00EB1E53 /* UIImage+LOTAdditions.m in Sources */,
+				CE8DE700143F50B00006AB1B /* LOTChapter02TreeDetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		546EDF0D1438C74B00E54C07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				546EDF0E1438C74B00E54C07 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		546EDF161438C74B00E54C07 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				546EDF171438C74B00E54C07 /* en */,
+			);
+			name = MainWindow.xib;
+			path = loveOldTree;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		546EDF191438C74B00E54C07 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: HANPO CHENG (PSN98Y47V7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: HANPO CHENG (PSN98Y47V7)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PROVISIONING_PROFILE = "05EC6C52-2A3F-4AA0-8920-1EDFEA263889";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "05EC6C52-2A3F-4AA0-8920-1EDFEA263889";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Debug;
+		};
+		546EDF1A1438C74B00E54C07 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: HANPO CHENG (PSN98Y47V7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: HANPO CHENG (PSN98Y47V7)";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "05EC6C52-2A3F-4AA0-8920-1EDFEA263889";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "05EC6C52-2A3F-4AA0-8920-1EDFEA263889";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = NO;
+			};
+			name = Release;
+		};
+		546EDF1C1438C74B00E54C07 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "loveOldTree/loveOldTree-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				INFOPLIST_FILE = "loveOldTree/loveOldTree-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		546EDF1D1438C74B00E54C07 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "loveOldTree/loveOldTree-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				INFOPLIST_FILE = "loveOldTree/loveOldTree-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		546EDEFA1438C74B00E54C07 /* Build configuration list for PBXProject "loveOldTree" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				546EDF191438C74B00E54C07 /* Debug */,
+				546EDF1A1438C74B00E54C07 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		546EDF1B1438C74B00E54C07 /* Build configuration list for PBXNativeTarget "loveOldTree" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				546EDF1C1438C74B00E54C07 /* Debug */,
+				546EDF1D1438C74B00E54C07 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 546EDEF71438C74B00E54C07 /* Project object */;
+}
