@@ -51,8 +51,8 @@
     [myMountainfFront release];
     [myTree release];
     [mySeedTitle release];
-    [myFruit release];
-    [myLeaf release];
+//    [myFruit release];
+//    [myLeaf release];
     [super dealloc];
 }
 
@@ -165,7 +165,7 @@
         // CGRect myLeafRect = CGRectMake(p.x, p.y, myLeaf.frame.size.width, myLeaf.frame.size.height); 
         myLeaf = [[LOTLeaf alloc] initWithFrame:CGRectMake(p.x,p.y, 30.0, 33.0)];
         [myTree addSubview:myLeaf];
-        
+        [myLeaf release];
     }
 }
 
@@ -177,7 +177,7 @@
          
         myFruit = [[LOTFruit alloc] initWithFrame:CGRectMake(p.x,p.y, 30.0, 25.0)];
         [self.view addSubview:myFruit];
-        
+        [myFruit release];
     }
     
 }
@@ -185,13 +185,61 @@
 - (void)lotMessage
 {
     
+    
+    //---建立一個CALayer---
+    messageLayer =[[CALayer alloc]init];
+    [messageLayer setBounds:CGRectMake(0.0, 0.0, 50.0, 50.0)];
+    [messageLayer setPosition:CGPointMake(160.0, 375.0)];
+//    UIColor *myAlphaRed=[UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:0.5];
+//    CGColorRef cgReddish=[myAlphaRed CGColor];
+//    [messageLayer setBackgroundColor:cgReddish];
+    
+    messageLayer.cornerRadius =20.0;//圖層圓角
+    messageLayer.shadowOffset = CGSizeMake(0, 3);//設定圖層影子位移距離
+    messageLayer.shadowRadius = 5.0;
+    messageLayer.shadowColor = [UIColor blackColor].CGColor;
+    messageLayer.shadowOpacity = 0.8;
+    
+    UIImage *img1 =[UIImage imageNamed:@"Icon.png"];
+    messageLayer.contents=(id)[img1 CGImage]; //CALayer加上圖片
+    [self.view.layer addSublayer:messageLayer]; //加入view的layer裡
+    //[messageLayer setZPosition:0]; //ZPosition數字越大越上層
+    
+    
+    textLayer=[[CALayer alloc]init];
+    [textLayer setBounds:CGRectMake(0.0, 0.0, 50.0, 50.0)];
+    [textLayer setPosition:CGPointMake(0.0, 30.0)];
+    textLayer.cornerRadius =10.0;//圖層圓角
+    UIColor *myAlphaRed=[UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:0.5];
+    CGColorRef cgReddish=[myAlphaRed CGColor];
+    [textLayer setBackgroundColor:cgReddish];
+    
     UILabel *myMessageLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 370, 280, 30)];
-    myMessageLabel.backgroundColor = [UIColor colorWithWhite:255 alpha:0.7];
+    myMessageLabel.backgroundColor = [UIColor colorWithWhite:255 alpha:0.0];
     myMessageLabel.text = @" 神祕樹：謝謝你幫我添增新葉^^";
+    [self.view.layer addSublayer:myMessageLabel.layer];
+//    [textLayer addSublayer:myMessageLabel.layer];
+    [messageLayer addSublayer:textLayer];
+    [textLayer release];
     
-    [self.view addSubview:myMessageLabel];
-    [myMessageLabel release];
+    [textLayer setPosition:CGPointMake(0.0, -300.0)];
     
+    
+    //[messageLayer addSublayer:textLayer];
+//    [messageLayer setZPosition:100];
+    
+    //---設定aplha淡出動畫校過---
+    CABasicAnimation *fader = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    
+    [fader setDuration:1.0];
+    [fader setFromValue:[NSNumber numberWithFloat:1.0]];
+    [fader setToValue:[NSNumber numberWithFloat:1.0]];
+    fader.fillMode = kCAFillModeForwards;//必須寫在addAnimation動畫開始之前
+	fader.removedOnCompletion = NO;//必須寫在addAnimation動畫開始之前
+    [messageLayer addAnimation:fader forKey:@"opacity"];
+    
+    //[self.view addSubview:myMessageLabel];
+    //    [myMessageLabel release];
 }
 
 

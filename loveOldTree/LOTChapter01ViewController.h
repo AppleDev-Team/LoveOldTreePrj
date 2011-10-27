@@ -10,6 +10,7 @@
 #import "LOTLeaf.h"
 #import "LOTFruit.h"
 #import "SearchTreeData.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface LOTChapter01ViewController : UIViewController  <UIAccelerometerDelegate>
 {
@@ -31,6 +32,9 @@
     NSArray *leafFlipArray;
     
     NSArray *fruitXYArray;
+    
+    CALayer *messageLayer;
+    CALayer *textLayer;
 }
 
 -(void)setLeaf;
