@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LOTChapter03ViewController : UIViewController
+@interface LOTChapter03ViewController : UIViewController{
+    IBOutlet UIWebView *webview;
+}
 
 @end

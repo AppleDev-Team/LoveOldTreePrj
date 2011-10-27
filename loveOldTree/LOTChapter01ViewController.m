@@ -35,6 +35,8 @@
     self.view.backgroundColor = [UIColor blueColor];
 }
 
+
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -42,10 +44,249 @@
     // e.g. self.myOutlet = nil;
 }
 
+-(void)dealloc
+{
+    [myBg release];
+    [myMountainfBack release];
+    [myMountainfFront release];
+    [myTree release];
+    [mySeedTitle release];
+    [myFruit release];
+    [myLeaf release];
+    [super dealloc];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    UIAccelerometer *theAccel = [UIAccelerometer sharedAccelerometer];
+    
+    //設定偵測頻率每秒10次
+    theAccel.updateInterval = 1.0f/80.0f;
+    
+    //設定委派對象給自己（ViewController）
+    theAccel.delegate = self;
+    
+    
+    CGRect myBGRect = CGRectMake(0.0f,-75.0f, 360.0f, 525.0f); 
+    myBg = [[UIImageView alloc] initWithFrame:myBGRect]; 
+    [myBg setImage:[UIImage imageNamed:@"background.png"]]; 
+    myBg.opaque = YES; 
+    [self.view addSubview:myBg];
+    
+    CGRect myMountainfBackRect = CGRectMake(0.0f, 295.0f, 132.0f, 160.0f); 
+    myMountainfBack = [[UIImageView alloc] initWithFrame:myMountainfBackRect]; 
+    [myMountainfBack setImage:[UIImage imageNamed:@"mountainfBack.png"]]; 
+    myMountainfBack.opaque = YES; 
+    [self.view addSubview:myMountainfBack];
+    
+    CGRect myMountainfFrontRect = CGRectMake(80.0f, 275.0f, 263.0f, 184.0f); 
+    myMountainfFront = [[UIImageView alloc] initWithFrame:myMountainfFrontRect]; 
+    [myMountainfFront setImage:[UIImage imageNamed:@"mountainfFront.png"]]; 
+    myMountainfFront.opaque = YES; 
+    [self.view addSubview:myMountainfFront];
+    
+    CGRect myTreeRect = CGRectMake(0.0f, 25.0f, 320.0f, 480.0f); 
+    myTree = [[UIImageView alloc] initWithFrame:myTreeRect]; 
+    [myTree setImage:[UIImage imageNamed:@"treeAndGround.png"]]; 
+    myTree.opaque = YES; 
+    [self.view addSubview:myTree]; 
+    
+    CGRect mySeedTitleRect = CGRectMake(285.0f, 5.0f, 30.0f, 80.0f); 
+    mySeedTitle = [[UIImageView alloc] initWithFrame:mySeedTitleRect]; 
+    [mySeedTitle setImage:[UIImage imageNamed:@"seedTitle.png"]]; 
+    mySeedTitle.opaque = YES; 
+    [self.view addSubview:mySeedTitle]; 
+    
+    //＊＊＊＊＊＊＊判斷進入下一回合了與否再設定葉子跟種子樹＊＊＊＊＊＊＊
+    
+    SearchTreeData *testTrees = [[SearchTreeData alloc]init];
+    
+    [self setLeaf];
+    [self upadteLeaf:[testTrees leafUseNumber]];//傳入葉子顯示數目
+    
+    [self setFruit];
+    [self upadteFruit:[testTrees seedUseNumber]];//傳入葉子顯示數目
+    
+    [self lotMessage];
+    
+
+    
+}
+
+
+-(void)setLeaf
+{
+    leafXYArray = [NSArray arrayWithObjects:
+                   [NSValue valueWithCGPoint:CGPointMake(20.0, 146.0)],
+                   [NSValue valueWithCGPoint:CGPointMake(56.0,146.0)], 
+                   [NSValue valueWithCGPoint:CGPointMake(71.0, 163.0)],
+                   [NSValue valueWithCGPoint:CGPointMake(100.0,136.0)], 
+                   [NSValue valueWithCGPoint:CGPointMake(150.0, 73.0)],
+                   [NSValue valueWithCGPoint:CGPointMake(80.0, 57.0)],
+                   [NSValue valueWithCGPoint:CGPointMake(99.0, 34.0)],
+                   [NSValue valueWithCGPoint:CGPointMake(107.0, 73.0)],
+                   [NSValue valueWithCGPoint:CGPointMake(122.0, 89.0)],
+                   [NSValue valueWithCGPoint:CGPointMake(132.0, 41.0)],
+                   [NSValue valueWithCGPoint:CGPointMake(147.0, 24.0)],
+                   [NSValue valueWithCGPoint:CGPointMake(180.0, 8.0)],
+                   [NSValue valueWithCGPoint:CGPointMake(185.0, 49.0)],
+                   [NSValue valueWithCGPoint:CGPointMake(220.0, 24.0)],
+                   [NSValue valueWithCGPoint:CGPointMake(257.0, 56.0)],
+                   [NSValue valueWithCGPoint:CGPointMake(220.0, 81.0)],
+                   [NSValue valueWithCGPoint:CGPointMake(262.0, 113.0)],
+                   [NSValue valueWithCGPoint:CGPointMake(220.0, 118.0)],
+                   [NSValue valueWithCGPoint:CGPointMake(220.0, 152.0)],
+                   [NSValue valueWithCGPoint:CGPointMake(250.0, 141.0)],
+                   nil];
+}
+
+-(void)setFruit
+{
+    fruitXYArray = [NSArray arrayWithObjects:
+                   [NSValue valueWithCGPoint:CGPointMake(285.0,85.0)],
+                   [NSValue valueWithCGPoint:CGPointMake(285.0,110.0)], 
+                   [NSValue valueWithCGPoint:CGPointMake(285.0,135.0)],
+                   [NSValue valueWithCGPoint:CGPointMake(285.0,160.0)], 
+                   [NSValue valueWithCGPoint:CGPointMake(285.0,185.0)],
+                   [NSValue valueWithCGPoint:CGPointMake(285.0,210.0)],
+                   [NSValue valueWithCGPoint:CGPointMake(285.0,235.0)],
+                   [NSValue valueWithCGPoint:CGPointMake(285.0,260.0)],
+                   nil];
+}
+
+-(void)upadteLeaf:(int)leafInt
+{   
+    for (int i=0; i<leafInt; i++) {
+      NSValue *val = [leafXYArray objectAtIndex:i];
+      CGPoint p = [val CGPointValue];
+        
+        // CGRect myLeafRect = CGRectMake(p.x, p.y, myLeaf.frame.size.width, myLeaf.frame.size.height); 
+        myLeaf = [[LOTLeaf alloc] initWithFrame:CGRectMake(p.x,p.y, 30.0, 33.0)];
+        [myTree addSubview:myLeaf];
+        
+    }
+}
+
+-(void)upadteFruit:(int)fruitInt
+{   
+    for (int i=0; i<fruitInt; i++) {
+        NSValue *val = [fruitXYArray objectAtIndex:i];
+        CGPoint p = [val CGPointValue];
+         
+        myFruit = [[LOTFruit alloc] initWithFrame:CGRectMake(p.x,p.y, 30.0, 25.0)];
+        [self.view addSubview:myFruit];
+        
+    }
+    
+}
+
+- (void)lotMessage
+{
+    
+    UILabel *myMessageLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 370, 280, 30)];
+    myMessageLabel.backgroundColor = [UIColor colorWithWhite:255 alpha:0.7];
+    myMessageLabel.text = @" 神祕樹：謝謝你幫我添增新葉^^";
+    
+    [self.view addSubview:myMessageLabel];
+    [myMessageLabel release];
+    
+}
+
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [[UIAccelerometer sharedAccelerometer]setDelegate:nil];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+//---啟用Accelerometer Sensor---
+- (void) accelerometer:(UIAccelerometer *) meter didAccelerate: (UIAcceleration *) accel 
+{  
+    
+    
+    float tree_x = 0.0;
+    float tree_y =[accel z];
+    
+    //output_value = rate * input_value + (1.0 - rate) * previous_output_value;
+    float sz = 0.1 * tree_y + (1.0 - 0.1) * sz;
+    
+    
+    device = [UIDevice currentDevice] ; 
+    
+    switch (device.orientation) {
+        case UIDeviceOrientationFaceUp:
+            //NSLog(@"螢幕朝上平躺");
+            mountainfBackTransform =CGAffineTransformIdentity;
+            mountainfBackTransform = CGAffineTransformTranslate(mountainfBackTransform, 0, sz*-200-20);
+            [myMountainfBack setTransform:mountainfBackTransform];
+            [myMountainfBack setNeedsDisplay];
+            
+            mountainfFrontTransform=CGAffineTransformIdentity;
+            mountainfFrontTransform = CGAffineTransformTranslate(mountainfFrontTransform, 0, sz*-300-20);
+            [myMountainfFront setTransform:mountainfFrontTransform];
+            [myMountainfFront setNeedsDisplay];
+            
+            treeTransform = CGAffineTransformIdentity;
+            treeTransform = CGAffineTransformTranslate(treeTransform, tree_x, sz*-450-20);
+            [myTree setTransform:treeTransform];
+            [myTree setNeedsDisplay];
+            break;
+            
+        case UIDeviceOrientationFaceDown:
+            //NSLog(@"螢幕朝下平躺");
+            break;
+            
+            //系統無法判斷目前Device的方向，有可能是斜置 
+        case UIDeviceOrientationUnknown:
+            //NSLog(@"未知方向");
+            break;
+            
+        case UIDeviceOrientationLandscapeLeft:
+            //NSLog(@"螢幕向左橫置");
+            break;
+            
+        case UIDeviceOrientationLandscapeRight:
+            //NSLog(@"螢幕向右橫置");
+            break;
+            
+        case UIDeviceOrientationPortrait:
+            //NSLog(@"螢幕直立");
+            mountainfBackTransform =CGAffineTransformIdentity;
+            mountainfBackTransform = CGAffineTransformTranslate(mountainfBackTransform, 0, sz*-200-20);
+            [myMountainfBack setTransform:mountainfBackTransform];
+            [myMountainfBack setNeedsDisplay];
+            
+            mountainfFrontTransform=CGAffineTransformIdentity;
+            mountainfFrontTransform = CGAffineTransformTranslate(mountainfFrontTransform, 0, sz*-300-20);
+            [myMountainfFront setTransform:mountainfFrontTransform];
+            [myMountainfFront setNeedsDisplay];
+            
+            
+            treeTransform = CGAffineTransformIdentity;
+            treeTransform = CGAffineTransformTranslate(treeTransform, tree_x, sz*-450-20);
+            [myTree setTransform:treeTransform];
+            [myTree setNeedsDisplay];
+            break;
+            
+        case UIDeviceOrientationPortraitUpsideDown:
+            //NSLog(@"螢幕直立，上下顛倒");
+            break;
+            
+        default:
+            //NSLog(@"無法辨識");
+            break;
+    }
+    
+    
+}
+
 
 @end

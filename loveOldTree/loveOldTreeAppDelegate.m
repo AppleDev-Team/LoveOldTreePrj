@@ -47,10 +47,11 @@
 @end
 
 //------CustomImage------
+/*
 @implementation UITabBar (CustomImage)   
 - (void) drawRect:(CGRect)rect {   
     UIImage *image = [UIImage imageNamed:@"LOTTabBarBackground"];   
     [image drawInRect:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];   
 }   
-
 @end
+*/

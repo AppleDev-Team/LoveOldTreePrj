@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="872" systemVersion="10K549" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Tree" syncable="YES">
+        <attribute name="age" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="background" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="bust" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hight" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="management" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pluck" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="shape" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="soutce" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tree_address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tree_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tree_kind" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Tree" positionX="160" positionY="192" width="128" height="255"/>
+    </elements>
+</model>
