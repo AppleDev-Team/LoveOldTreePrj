@@ -76,6 +76,10 @@
 		54CC9BF11450051A00BAA325 /* LOTTabBarChapter02@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54CC9BF01450051A00BAA325 /* LOTTabBarChapter02@2x.png */; };
 		54CD31541451155A0025BEA8 /* woodBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 54CD3153145115590025BEA8 /* woodBg.png */; };
 		CED68DA5143F1FD5006B06AD /* OldTree.png in Resources */ = {isa = PBXBuildFile; fileRef = CED68DA4143F1FD5006B06AD /* OldTree.png */; };
+		DD6E5F63145901DA00E8A94E /* talkBox01.png in Resources */ = {isa = PBXBuildFile; fileRef = DD6E5F5F145901DA00E8A94E /* talkBox01.png */; };
+		DD6E5F64145901DA00E8A94E /* talkBox01@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD6E5F60145901DA00E8A94E /* talkBox01@2x.png */; };
+		DD6E5F65145901DA00E8A94E /* talkBox02.png in Resources */ = {isa = PBXBuildFile; fileRef = DD6E5F61145901DA00E8A94E /* talkBox02.png */; };
+		DD6E5F66145901DA00E8A94E /* talkBox02@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD6E5F62145901DA00E8A94E /* talkBox02@2x.png */; };
 		DD73B0C3143EAD2800EB1E53 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD73B0C2143EAD2800EB1E53 /* CoreLocation.framework */; };
 		DD73B0D0143EB1F100EB1E53 /* LOTAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = DD73B0CF143EB1F100EB1E53 /* LOTAnnotation.m */; };
 		DD73B0D8143EDC5E00EB1E53 /* UIImage+LOTAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DD73B0D7143EDC5E00EB1E53 /* UIImage+LOTAdditions.m */; };
@@ -185,6 +189,10 @@
 		54CC9BF01450051A00BAA325 /* LOTTabBarChapter02@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LOTTabBarChapter02@2x.png"; sourceTree = "<group>"; };
 		54CD3153145115590025BEA8 /* woodBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = woodBg.png; sourceTree = "<group>"; };
 		CED68DA4143F1FD5006B06AD /* OldTree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OldTree.png; sourceTree = "<group>"; };
+		DD6E5F5F145901DA00E8A94E /* talkBox01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = talkBox01.png; sourceTree = "<group>"; };
+		DD6E5F60145901DA00E8A94E /* talkBox01@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "talkBox01@2x.png"; sourceTree = "<group>"; };
+		DD6E5F61145901DA00E8A94E /* talkBox02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = talkBox02.png; sourceTree = "<group>"; };
+		DD6E5F62145901DA00E8A94E /* talkBox02@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "talkBox02@2x.png"; sourceTree = "<group>"; };
 		DD73B0C2143EAD2800EB1E53 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		DD73B0CE143EB1F100EB1E53 /* LOTAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LOTAnnotation.h; path = loveOldTree/LOTAnnotation.h; sourceTree = "<group>"; };
 		DD73B0CF143EB1F100EB1E53 /* LOTAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LOTAnnotation.m; path = loveOldTree/LOTAnnotation.m; sourceTree = "<group>"; };
@@ -250,6 +258,10 @@
 		5430EE611439502600D497D2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DD6E5F5F145901DA00E8A94E /* talkBox01.png */,
+				DD6E5F60145901DA00E8A94E /* talkBox01@2x.png */,
+				DD6E5F61145901DA00E8A94E /* talkBox02.png */,
+				DD6E5F62145901DA00E8A94E /* talkBox02@2x.png */,
 				DDD165A1145537620047B585 /* game-intro.png */,
 				DDD165A2145537620047B585 /* teamNumber1.png */,
 				DDD165A3145537620047B585 /* teamNumber2.png */,
@@ -573,6 +585,10 @@
 				549791311457ABAC00D813E9 /* story02@2x.png in Resources */,
 				549791321457ABAC00D813E9 /* story03.png in Resources */,
 				549791331457ABAC00D813E9 /* story03@2x.png in Resources */,
+				DD6E5F63145901DA00E8A94E /* talkBox01.png in Resources */,
+				DD6E5F64145901DA00E8A94E /* talkBox01@2x.png in Resources */,
+				DD6E5F65145901DA00E8A94E /* talkBox02.png in Resources */,
+				DD6E5F66145901DA00E8A94E /* talkBox02@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

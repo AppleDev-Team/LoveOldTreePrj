@@ -34,17 +34,18 @@
     NSArray *fruitXYArray;
     
     CALayer *messageLayer;
-    CALayer *textLayer;
+
 }
 
--(void)setLeaf;
+- (void)setLeaf;
 
--(void)upadteLeaf:(int)leafInt;
+- (void)upadteLeaf:(int)leafInt;
 
--(void)setFruit;
+- (void)setFruit;
 
--(void)upadteFruit:(int)fruitInt;
+- (void)upadteFruit:(int)fruitInt;
 
--(void)lotMessage;
+- (void)lotTalkLeafMessage;
+- (void)lotTalkFruitMessage;
 
 @end
