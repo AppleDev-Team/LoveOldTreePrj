@@ -10,5 +10,6 @@
 
 @interface LOTLeaf : UIImageView
 
++(void)resetLeaf;
 
 @end

@@ -159,7 +159,7 @@
         <TREE_LATITUDE>25.04096</TREE_LATITUDE>
         <TREE_LONGITUDE>121.55185</TREE_LONGITUDE>
     </TreeIndex>
-    <TreeIndex>
+    <!--<TreeIndex>
         <TREE_ID>11</TREE_ID>
         <TREE_KIND>測試點11</TREE_KIND>
         <TREE_MANAGEMENT_UNIT>勞工保險局</TREE_MANAGEMENT_UNIT>
@@ -318,5 +318,5 @@
         <TREE_XADDRESS>測試位址11</TREE_XADDRESS>
         <TREE_LATITUDE>25.04144</TREE_LATITUDE>
         <TREE_LONGITUDE>121.5525</TREE_LONGITUDE>
-    </TreeIndex>
+    </TreeIndex>-->
 </TREE_DATA>

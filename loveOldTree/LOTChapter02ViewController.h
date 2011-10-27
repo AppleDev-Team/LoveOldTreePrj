@@ -13,20 +13,19 @@
 
 @class LOTChapter02DetailViewController;
 
-@interface LOTChapter02ViewController : UIViewController <MKMapViewDelegate>{
-    CLLocationManager *locManager;	
-	IBOutlet MKMapView *mapView;
-	UIActivityIndicatorView *busyIndicator;
+@interface LOTChapter02ViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate> {
+    CLLocationManager *locationManager;
+    IBOutlet MKMapView *mapView;
+    IBOutlet UIActivityIndicatorView *activityIndicator;
+    CLLocationCoordinate2D userCoordinate;
 	BOOL hasShownUserLocationInMap;
 }
+@property (retain, nonatomic) IBOutlet UIView *busyOverlay;
 
-@property (nonatomic, retain) IBOutlet LOTChapter02DetailViewController *detailViewController;
-@property (nonatomic, retain) IBOutlet UIView *busyOverlay;
+-(void) addPOI;
+-(UIImage *)reSizeImageInPath:(NSString *)path withWidth:(CGFloat)width andHeight:(CGFloat)height;
 
 - (IBAction)centerToCurrentLocation:(id)sender;
-- (void) updateRegionForLocation:(CLLocation *) newLocation keepSpan:(BOOL) keepSpan;
-- (void) addDefaultAnnotations;
-- (UIImage *)reSizeImageInPath:(NSString *)path withWidth:(CGFloat)width andHeight:(CGFloat)height;
-
+//- (void) updateRegionForLocation:(CLLocation *) newLocation keepSpan:(BOOL) keepSpan;
 
 @end

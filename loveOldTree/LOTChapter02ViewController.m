@@ -9,14 +9,11 @@
 #import <QuartzCore/QuartzCore.h>
 #import "LOTChapter02ViewController.h"
 #import "LOTAnnotation.h"
-
 #import "LOTChapter02TreeDetailViewController.h"
-
-#import "UIImage+LOTAdditions.h"
-
+#import "SearchTreeData.h"
 
 @implementation LOTChapter02ViewController
-@synthesize detailViewController, busyOverlay; //detailViewController目前沒有使用_20111010
+@synthesize busyOverlay;
 
 - (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     
@@ -27,34 +24,71 @@
     self.title = @"尋找老樹";
     self.tabBarItem.image = [UIImage imageNamed:@"LOTTabBarChapter02"];
     
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"LOTPin"] style:UIBarButtonItemStyleBordered target:self action:@selector(centerToCurrentLocation:)] autorelease];
+    /*self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"LOTPin"] style:UIBarButtonItemStyleBordered target:self action:@selector(centerToCurrentLocation:)] autorelease];*/
 
+    // Create location manager object 
+    locationManager = [[CLLocationManager alloc] init];
+        
+    // There will be a warning from this line of code; ignore it for now 
+    [locationManager setDelegate:self];
+    
+    // We want all results from the location manager 
+    [locationManager setDistanceFilter:kCLDistanceFilterNone];
+    // And we want it to be as accurate as possible // regardless of how much time/power it takes 
+    [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+    // Tell our manager to start looking for its location immediately 
+    [locationManager startUpdatingLocation];
+    
     return self;
+}
 
+-(void)initCoordinate {
+    userCoordinate.latitude = 25.041702;
+    userCoordinate.longitude = 121.550128;
+    
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userCoordinate, 500, 500); 
+    [mapView setRegion:region animated:YES];
+    
+//   [self addPOI];
 }
 
 - (void) viewDidLoad {
-    
     [super viewDidLoad];
 
-    self.view.backgroundColor = [UIColor redColor];
-
-    locManager = [[CLLocationManager alloc] init];
-    [locManager startUpdatingLocation];
-    //  locManager.delegate = self; ?
+    //init map properties
+    [mapView setDelegate:self];
+    [mapView setMapType:MKMapTypeStandard];
+    [mapView setShowsUserLocation:YES];
     
     self.busyOverlay.layer.cornerRadius = 4.0f;
-	
-    mapView.delegate = self;
     
+    [self initCoordinate];
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+    
+    #ifdef TARGET_IPHONE_SIMULATOR
+//      userCoordinate = newLocation.coordinate;
+        userCoordinate.latitude = 25.041702;
+        userCoordinate.longitude = 121.550128;
+    #else
+        userCoordinate = [userLocation coordinate]; 
+    #endif
+    
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userCoordinate, 500, 500); 
+    [mapView setRegion:region animated:YES];
+    
+    NSLog(@"didUpdateToLocation userlocation %f %f", userCoordinate.latitude, userCoordinate.longitude);
+//    [self addPOI];
 }
 
 - (void) viewDidUnload {
     
-    self.detailViewController = nil;
-    self.busyOverlay = nil;
+    locationManager = nil;
+    mapView = nil;
+    activityIndicator = nil;
+    [self setBusyOverlay:nil];
     [super viewDidUnload];
-
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -64,11 +98,10 @@
 }
 
 - (void) centerPosition {
-
     [mapView setRegion:MKCoordinateRegionMakeWithDistance(
         mapView.userLocation.coordinate,
-        100, 
-        100
+        500, 
+        500
     ) animated:YES];
 
 }
@@ -79,8 +112,56 @@
 
 # pragma mark - MKMapViewDelegate events
 
-- (void) mapViewWillStartLoadingMap:(MKMapView *) theMapView {
+//新增據點
+-(void)addPOI {
+    
+    [mapView removeAnnotations:mapView.annotations];
 
+/*    for (int i=0; i<[mapView.annotations count]; i++) {
+        LOTAnnotation *annos = (LOTAnnotation *)([mapView.annotations objectAtIndex:i]);
+        [mapView removeAnnotation:annos];
+    }*/
+    
+    NSMutableArray *annotations = [[NSMutableArray alloc] init];
+    
+    // 建立一個CLLocationCoordinate2D
+    CLLocationCoordinate2D coord;
+    
+    //core data init
+    SearchTreeData *testTrees = [[[SearchTreeData alloc]init]autorelease];
+    NSMutableArray *testTreeArray = [testTrees searchUseTreeDataInMapOfInputLatitude:userCoordinate.latitude inputLongitude:userCoordinate.longitude];
+    //[testTrees searchTreesNotUse];
+    //NSArray *testTreeArray = [testTrees searchTreesNotUse];
+    
+    //    NSLog(@"tree count %@", [testTreeArray count]);
+    for (int i = 0; i<[testTreeArray count]; i++) {
+        TheTreesListInMap *personEntity = [testTreeArray objectAtIndex:i];
+        
+        NSLog(@"tree %@", personEntity.treeID);
+        coord.latitude = [personEntity.treeLatitude doubleValue];
+        coord.longitude = [personEntity.treeLongitude doubleValue];
+        
+        LOTAnnotation *anno = [[[LOTAnnotation alloc] initWithRootView:personEntity.treeID subtitle:personEntity.treeDistance coordinate:coord userCoordinate:userCoordinate treeId:personEntity.treeID treeDistance:personEntity.treeDistance] autorelease];
+        
+        /*LOTAnnotation *anno = [[[LOTAnnotation alloc] initWithLocationTitle:personEntity.treeID subtitle:personEntity.treeDistance coordinate:coord userCoordinate:userCoordinate treeId:personEntity.treeID treeKind:personEntity.treeKind treeDistance:personEntity.treeDistance treeAddress:personEntity.treeAddress treeHeight:personEntity.treeHight treeSource:personEntity.treeSoutce treeAge:personEntity.treeAge treeShape:personEntity.treeShape treeBust:personEntity.treeBust treeLocation:personEntity.treeLocation treeBackground:personEntity.treeBackground treeManagement:personEntity.treeManagement] autorelease];*/
+        
+        // 把annotation加進MapView裡
+        [annotations addObject:anno];
+    }
+    
+    [mapView addAnnotations:annotations];   
+    [annotations release];
+    
+}
+
+- (void) mapViewWillStartLoadingMap:(MKMapView *) theMapView {
+    /*if(activityIndicator == nil) {
+        activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+		activityIndicator.frame = CGRectMake(120, 180, 80, 80);
+		[self.view addSubview:activityIndicator];
+	}
+	activityIndicator.hidesWhenStopped = YES;
+	[activityIndicator startAnimating];*/
     if (!self.busyOverlay.superview) {
 
         [self.view addSubview:self.busyOverlay];
@@ -99,12 +180,10 @@
         self.busyOverlay.alpha = 1;
         
     } completion:nil];
-    
-
 }
 
 - (void) mapViewDidFinishLoadingMap:(MKMapView *) theMapView {
-
+//    [activityIndicator stopAnimating];
     [UIView animateWithDuration:0.3f delay:0 options:UIViewAnimationOptionAllowUserInteraction|UIViewAnimationOptionBeginFromCurrentState animations:^(void) {
         
         self.busyOverlay.alpha = 0;
@@ -115,19 +194,36 @@
             [self.busyOverlay removeFromSuperview];
         
     }];
-
 }
 
-- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
+-(void)viewWillDisappear:(BOOL)animated {
+    [locationManager stopUpdatingLocation];
+    [super viewWillDisappear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    NSLog(@"viewDidAppear");
+    [self addPOI];
+}
+
+/*- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
 
     [self updateRegionForLocation:userLocation.location keepSpan:hasShownUserLocationInMap];
     hasShownUserLocationInMap = YES;
     [self centerPosition];
-    
+}*/
+
+//完成移動地圖動作 重新計算 地圖中心點／地圖邊界
+-(void)mapView:(MKMapView *)theMapView regionDidChangeAnimated:(BOOL)animated {
+    MKCoordinateRegion region;
+    CLLocationCoordinate2D centerCoordinate=theMapView.region.center;
+    region.center= centerCoordinate;
+
+//    NSLog(@"regionDidChangeAnimated %f,%f",centerCoordinate.latitude, centerCoordinate.longitude);
 }
 
 // 更新顯示的視野
-- (void) updateRegionForLocation:(CLLocation *) newLocation keepSpan:(BOOL) keepSpan{
+/*- (void) updateRegionForLocation:(CLLocation *) newLocation keepSpan:(BOOL) keepSpan{
     //指定中心點
     CLLocationCoordinate2D theCenter;
     theCenter.latitude = 25.054606;
@@ -147,49 +243,69 @@
 		theRegion.span = mapView.region.span;
 	}
 	[mapView setRegion:theRegion animated:YES];
-    [self addDefaultAnnotations];
-}
+//    [self addDefaultAnnotations];
+}*/
 
 - (MKAnnotationView *) mapView:(MKMapView *)theMapView viewForAnnotation:(id<MKAnnotation>)annotation {
-    
-    static NSString * const identifier = @"myAnnotation";
-    
-    MKPinAnnotationView *pin = (MKPinAnnotationView *) [theMapView dequeueReusableAnnotationViewWithIdentifier:identifier];
-    if (pin == nil) {
 
-        pin = [[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier] autorelease];
+    static NSString *const kTreeAnnotation = @"TreeAnnotation";
+    static NSString *const kUserLocationAnnotation = @"UserLocationAnnotation";
+
+    NSString *usedIdentifier = kTreeAnnotation;
+
+    if (theMapView.userLocation) {
         
-        pin.image = [[UIImage imageNamed:@"OldTree"] resizedImageWithSize:(CGSize){ 22, 22 }];
-        pin.canShowCallout = YES;
-
-        UIButton* detailButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-        [detailButton addTarget:self action:@selector(showDetails:) forControlEvents:UIControlEventTouchUpInside];
-        pin.rightCalloutAccessoryView = detailButton;
-
+        CLLocationCoordinate2D annotationCoordinate = [annotation coordinate];
+        CLLocationCoordinate2D mapUserLocationCoordinate = theMapView.userLocation.coordinate;
+        
+        BOOL (^locationCoordinatesAreEqual)(CLLocationCoordinate2D lhs, CLLocationCoordinate2D rhs) = ^ (CLLocationCoordinate2D lhs, CLLocationCoordinate2D rhs) {
+        
+            if (lhs.longitude != rhs.longitude)
+                return NO;
+            
+            if (lhs.latitude != rhs.latitude)
+                return NO;
+            
+            return YES;
+        
+        };
+        
+        if (locationCoordinatesAreEqual(annotationCoordinate, mapUserLocationCoordinate))
+            usedIdentifier = kUserLocationAnnotation;
+        
     }
     
-    pin.annotation = annotation;
+    MKAnnotationView *pin = (MKAnnotationView *) [theMapView dequeueReusableAnnotationViewWithIdentifier:usedIdentifier];
+    
+    if (pin == nil) {
+        
+        pin = [[[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:usedIdentifier] autorelease];
+        
+        if (usedIdentifier == kTreeAnnotation) {
 
+            pin.image = [self reSizeImageInPath:@"OldTree.png" withWidth:35 andHeight:25];
+            pin.canShowCallout = YES;
+
+            UIButton* detailButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+            pin.rightCalloutAccessoryView = detailButton;
+
+        } else if (usedIdentifier == kUserLocationAnnotation) {
+        
+            //  default
+        }
+        
+    }
+    pin.annotation = annotation;
     return pin;
     
 }
 
-
-- (void) addDefaultAnnotations {
-
-    [mapView addAnnotations:[NSArray arrayWithObjects:
-       [LOTAnnotation annotationWithCoordinate:(CLLocationCoordinate2D){ 25.054606, 121.548437 } title:@"敦化店" subtitle:@"台北市敦化北路150號"],
-       [LOTAnnotation annotationWithCoordinate:(CLLocationCoordinate2D){ 25.045792, 121.546383 } title:@"忠孝店" subtitle:@"台北市忠孝東路四段49巷2號"],
-    nil]];
+//POI tap 後切換至 childview(DetailView)
+-(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+    [view setHidden:YES];
+    LOTChapter02TreeDetailViewController *childView = [[[LOTChapter02TreeDetailViewController alloc] initWithMapAnnotation:view.annotation] autorelease];
+    [self.navigationController pushViewController:childView animated:YES];
     
-}
-
-- (void)showDetails:(id)sender
-{
-    
-     LOTChapter02TreeDetailViewController *pushedVC=[[[[self class]alloc]initWithNibName:NSStringFromClass([LOTChapter02TreeDetailViewController class]) bundle:[NSBundle bundleForClass:[LOTChapter02TreeDetailViewController class]]]autorelease];
-     
-     [self.navigationController pushViewController:pushedVC animated:YES]; 
     
 }
 
@@ -204,11 +320,12 @@
 }
 
 - (void)dealloc {
+    if([locationManager delegate] == self) 
+        [locationManager setDelegate:nil];
+    [locationManager release];
+    [mapView release];
+    [activityIndicator release];
     [busyOverlay release];
-    [detailViewController release];
-    [locManager stopUpdatingLocation];
-    [locManager release];
-    [busyIndicator release];
     [super dealloc];
 }
 @end

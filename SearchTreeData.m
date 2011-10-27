@@ -89,7 +89,6 @@
     treelist.treeBust = [personEntity valueForKey:@"bust"];
     treelist.treeLocation = [personEntity valueForKey:@"location"];
     treelist.treeBackground = [personEntity valueForKey:@"background"];
-    
     return treelist;
     
 }
@@ -107,17 +106,20 @@
     
         NSArray  *searchDataArray= [self.managedObjectContext executeFetchRequest:request error:nil];
         NSManagedObject *personEntity = [searchDataArray objectAtIndex:0];
-        [personEntity setValue:[NSNumber numberWithBool:NO] forKey:@"pluck"];
+        if([[personEntity valueForKey:@"pluck"]isEqualToNumber:[NSNumber numberWithBool:YES]]){
+        
+            [personEntity setValue:[NSNumber numberWithBool:NO] forKey:@"pluck"];
     
-        NSError *savingError = nil;
-        if (![self.managedObjectContext save:&savingError])
-            NSLog(@"Error saving: %@", savingError);
-        NSInteger userLeaf = [[NSUserDefaults standardUserDefaults]integerForKey:@"kLeafNumber"];
-        userLeaf += 1;
-        [[NSUserDefaults standardUserDefaults] setInteger:userLeaf forKey:@"kLeafNumber"];
-        NSLog(@"我拔下第  %i  片",userLeaf);
-        if (userLeaf == 20) {
-            [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"kUserRound"];
+            NSError *savingError = nil;
+            if (![self.managedObjectContext save:&savingError])
+                NSLog(@"Error saving: %@", savingError);
+            NSInteger userLeaf = [[NSUserDefaults standardUserDefaults]integerForKey:@"kLeafNumber"];
+            userLeaf += 1;
+            [[NSUserDefaults standardUserDefaults] setInteger:userLeaf forKey:@"kLeafNumber"];
+        
+            if (userLeaf == 20) {
+                [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"kUserRound"];
+            }
         }
     }
 }
@@ -149,7 +151,7 @@
     [[NSUserDefaults standardUserDefaults] setInteger:round forKey:@"kUserSeedsNumber"];
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"kUserRound"];
     
-    NSLog(@"新增後回合   %i",round);
+    //
     
     NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
     [request setEntity:[NSEntityDescription entityForName:@"Tree" inManagedObjectContext:self.managedObjectContext]];

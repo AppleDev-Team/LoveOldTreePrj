@@ -58,6 +58,7 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    NSLog(@"collectleaf %d", [[NSUserDefaults standardUserDefaults] integerForKey:@"collectleaf"]);
     [super viewDidAppear:animated];
     
     UIAccelerometer *theAccel = [UIAccelerometer sharedAccelerometer];
@@ -109,7 +110,16 @@
     [self setFruit];
     [self upadteFruit:[testTrees seedUseNumber]];//傳入葉子顯示數目
     
-    [self lotTalkLeafMessage];
+    if ([[NSUserDefaults standardUserDefaults] integerForKey:@"collectleaf"]==1) {
+        [self lotTalkLeafMessage];
+        [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"collectleaf"];
+        
+    } else if ([[NSUserDefaults standardUserDefaults] integerForKey:@"collectleaf"]==2){
+        [self lotTalkFruitMessage];
+        [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"collectleaf"];
+    } 
+    
+//    [self lotTalkLeafMessage];
 //    [self lotTalkFruitMessage];
     
 
@@ -159,6 +169,7 @@
 
 -(void)upadteLeaf:(int)leafInt
 {   
+    [LOTLeaf resetLeaf];
     for (int i=0; i<leafInt; i++) {
       NSValue *val = [leafXYArray objectAtIndex:i];
       CGPoint p = [val CGPointValue];
@@ -172,6 +183,7 @@
 
 -(void)upadteFruit:(int)fruitInt
 {   
+    [LOTFruit resetFruit];
     for (int i=0; i<fruitInt; i++) {
         NSValue *val = [fruitXYArray objectAtIndex:i];
         CGPoint p = [val CGPointValue];
@@ -185,7 +197,6 @@
 
 - (void)lotTalkLeafMessage
 {
-    
     
     //---建立一個CALayer---
     messageLayer =[[CALayer alloc]init];

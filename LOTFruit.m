@@ -62,6 +62,11 @@ static int fruitCount = 0;
     return self;
 }
 
++(void)resetFruit
+{
+    fruitCount=0;
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

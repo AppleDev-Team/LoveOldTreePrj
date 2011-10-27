@@ -30,14 +30,8 @@
     if(itemFound){
         if([elementName isEqualToString:@"TREE_ID"]){
             idFound = YES;
-        }else if([elementName isEqualToString:@"TREE_XADDRESS"]){
-            addressFound = YES;
         }else if([elementName isEqualToString:@"TREE_KIND"]){
             kindFound = YES;
-        }else if([elementName isEqualToString:@"TREE_LATITUDE"]){
-            latitudeFound  = YES;
-        }else if([elementName isEqualToString:@"TREE_LONGITUDE"]){
-            longitudeFound = YES;
         }else if([elementName isEqualToString:@"TREE_MANAGEMENT_UNIT"]){
             managementFound = YES;
         }else if([elementName isEqualToString:@"TREE_HIGH"]){
@@ -54,6 +48,12 @@
             locationFound = YES;
         }else if([elementName isEqualToString:@"TREE_Background"]){
             backgroundFound = YES;
+        }else if([elementName isEqualToString:@"TREE_XADDRESS"]){
+            addressFound = YES;
+        }else if([elementName isEqualToString:@"TREE_LATITUDE"]){
+            latitudeFound  = YES;
+        }else if([elementName isEqualToString:@"TREE_LONGITUDE"]){
+            longitudeFound = YES;
         }
     }
     if([elementName isEqualToString:@"TreeIndex"]){
@@ -70,14 +70,8 @@
     if(itemFound){
         if([elementName isEqualToString:@"TREE_ID"]){
             idFound = NO;
-        }else if([elementName isEqualToString:@"TREE_XADDRESS"]){
-            addressFound = NO;
         }else if([elementName isEqualToString:@"TREE_KIND"]){
             kindFound = NO;
-        }else if([elementName isEqualToString:@"TREE_LATITUDE"]){
-           latitudeFound = NO;
-        }else if([elementName isEqualToString:@"TREE_LONGITUDE"]){
-            longitudeFound = NO;
         }else if([elementName isEqualToString:@"TREE_MANAGEMENT_UNIT"]){
             managementFound = NO;
         }else if([elementName isEqualToString:@"TREE_HIGH"]){
@@ -94,6 +88,12 @@
             locationFound = NO;
         }else if([elementName isEqualToString:@"TREE_Background"]){
             backgroundFound = NO;
+        }else if([elementName isEqualToString:@"TREE_XADDRESS"]){
+            addressFound = NO;
+        }else if([elementName isEqualToString:@"TREE_LATITUDE"]){
+            latitudeFound  = NO;
+        }else if([elementName isEqualToString:@"TREE_LONGITUDE"]){
+            longitudeFound = NO;
         }
     }
 }
@@ -107,52 +107,67 @@
         }
         if(idFound){
             treeID = string;
-        }
-        if(addressFound){
-            treeAddress = string;
+            //NSLog(@"ID %@",string);
         }
         if(kindFound){
             treeKind = string;
-        }
-        if(longitudeFound){
-            //treeLongitude = [NSNumber numberWithInteger: [string integerValue]];
-            treeLongitude = string;
-        }
-        if (latitudeFound) {
-            //treeLatitude = [NSNumber numberWithInteger: [string integerValue]];
-            treeLatitude = string;
+            //NSLog(@"Kind %@",string);
         }
         if(managementFound){
             treeManagement = string;
+            //NSLog(@"Man %@",string);
         }
         if(hightFound){
             treeHight = string;
+            //NSLog(@"hight %@",string);
         }
         if(soutceFound){
             treeSoutce = string;
+            //NSLog(@"sou %@",string);
         }
         if(ageFound){
             treeAge = string;
+            //NSLog(@"age %@",string);
         }
         if(shapeFound){
             treeShape = string;
+            //NSLog(@"sha %@",string);
         }
         if(bustFound){
             treeBust = string;
+            //NSLog(@"bus %@",string);
         }
+        
         if(locationFound){
             treeLocation = string;
+            //NSLog(@"location %@",string);
         }
         if(backgroundFound){
-            
+            treeBackground = string;
+        }
+         if(addressFound){
+            treeAddress = string;
+        }
+        if(latitudeFound){
+            //treeLongitude = [NSNumber numberWithInteger: [string integerValue]];
+            treeLatitude = string;
+        }     
+        if(longitudeFound){
             XMLList *list = [[XMLList alloc]init];
             list.treeID = treeID;
             list.treeKind = treeKind;
-            list.treeLongitude = treeLongitude;
+            list.treeLongitude = string;
             list.treeLatitude = treeLatitude;
-            list.treeAddress = string;
+            list.treeManagement = treeManagement;
+            list.treeHight = treeHight;
+            list.treeSoutce = treeSoutce;
+            list.treeAge = treeAge;
+            list.treeShape = treeShape;
+            list.treeBust = treeBust;
+            list.treeLocation = treeLocation;
+            list.treeAddress = treeAddress;
+            list.treeBackground = treeBackground;
             [treeItems addObject:list];
-            
             [list release];
         }
         

@@ -121,7 +121,6 @@ NSString * const kCoreDataBaseUse_DidImportData = @"kCoreDataBaseUse_DidImportDa
             [savedPerson setValue:index.treeLocation forKey:@"location"];
             [savedPerson setValue:index.treeBackground forKey:@"background"];
             [savedPerson setValue:[NSNumber numberWithBool:YES] forKey:@"pluck"];
-
             NSError *savingError = nil;
             if (![context save:&savingError])
                 NSLog(@"Error saving: %@", savingError);

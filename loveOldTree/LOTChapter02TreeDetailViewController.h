@@ -8,6 +8,23 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LOTChapter02TreeDetailViewController : UIViewController
+@interface LOTChapter02TreeDetailViewController : UIViewController <UIAlertViewDelegate, UIActionSheetDelegate> {
+    
+    UITableView *tableView;
+    UIButton *routeButton;
+    UIButton *collectLeafButton;
+    UIButton *phoneCallButton;
+}
+@property (nonatomic, retain) IBOutlet UITableView *tableView;
+@property (nonatomic, retain) IBOutlet UIButton *routeButton;
+@property (nonatomic, retain) IBOutlet UIButton *collectLeafButton;
+@property (nonatomic, retain) IBOutlet UIButton *phoneCallButton;
+
+//init with MapAnnotation
+-(id)initWithMapAnnotation:(id)theAnnotation;
+
+-(IBAction)goRoute:(id)sender;
+-(IBAction)collectButton:(id)sender;
+-(IBAction)notifyPress:(id)sender;
 
 @end

@@ -10,4 +10,6 @@
 
 @interface LOTFruit : UIImageView
 
++(void)resetFruit;
+
 @end

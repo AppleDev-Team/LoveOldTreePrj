@@ -8,9 +8,9 @@
 
 #import "LOTLeaf.h"
 
-@implementation LOTLeaf
-
 static int treeCount = 0;
+
+@implementation LOTLeaf
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -32,6 +32,9 @@ static int treeCount = 0;
     return self;
 }
 
-
++(void)resetLeaf
+{
+    treeCount=0;
+}
 
 @end
